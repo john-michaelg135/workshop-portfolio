@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #1A1A1A;
+  --color-bg-tertiary: #222222;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #C7C7C7;
+  --color-accent: #C3B1FF;
+  --color-border: #484848;
+  --color-text-on-accent: #0A0A0A;
+
+  /* Font families */
+  --font-display: "Bebas Neue", cursive;
+  --font-body: "Manrope", sans-serif;
+  --font-nav: "Inter", sans-serif;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 30px;
+  --radius-full: 100px;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 1rem;
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus visible styles */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Gradient text for titles */
+.gradient-text {
+  background: linear-gradient(135deg, #C3B1FF 0%, #8B5CF6 40%, #EC4899 70%, #C3B1FF 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #C3B1FF, #8B5CF6);
+  top: -10%;
+  left: -5%;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #6366F1, #3B82F6);
+  top: 5%;
+  right: -5%;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #EC4899, #F472B6);
+  top: 35%;
+  left: -8%;
+}
+
+.orb-4 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #06B6D4, #8B5CF6);
+  bottom: -5%;
+  right: -10%;
+}
+
+.orb-5 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #C3B1FF, #A78BFA);
+  bottom: 10%;
+  left: -10%;
+}
+
+.orb-6 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #C3B1FF, #EC4899);
+  top: 50%;
+  left: 50%;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text {
+    animation: none !important;
+  }
+  .animate-float-title {
+    animation: none !important;
+  }
+}
+
+/* Floating title animation */
+.animate-float-title {
+  animation: float-title 4s ease-in-out infinite;
+}
+
+@keyframes float-title {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
