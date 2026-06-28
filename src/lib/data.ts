@@ -106,5 +106,5 @@ export const socialLinks: SocialLink[] = [
 
 export const contactData = {
   email: "johnmichaelg046@gmail.com",
-  copyright: "© 2024 Kael. All rights reserved.",
+  copyright: "© 2026 Kael. All rights reserved.",
 };

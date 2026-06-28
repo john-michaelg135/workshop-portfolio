@@ -410,3 +410,161 @@ html.light .gradient-text-flow {
     transform: none;
   }
 }
+
+/* ===== Success Modal ===== */
+.success-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: modal-fade 0.3s ease both;
+}
+
+.success-backdrop.is-closing {
+  animation: modal-fade 0.3s ease reverse both;
+}
+
+.success-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2.75rem 2.25rem 2.25rem;
+  border-radius: 28px;
+  max-width: 420px;
+  width: 100%;
+  overflow: visible;
+  animation: modal-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.success-card.is-closing {
+  animation: modal-pop-out 0.3s ease both;
+}
+
+@keyframes modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-pop {
+  0% { opacity: 0; transform: scale(0.7) translateY(40px); }
+  60% { transform: scale(1.04) translateY(-6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes modal-pop-out {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.85) translateY(20px); }
+}
+
+/* Checkmark */
+.success-check {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-svg {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  z-index: 2;
+}
+
+.check-circle {
+  stroke: var(--color-accent);
+  stroke-width: 2.5;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: check-circle-draw 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.1s forwards;
+}
+
+.check-mark {
+  stroke: var(--color-accent);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: check-mark-draw 0.35s cubic-bezier(0.65, 0, 0.45, 1) 0.55s forwards;
+}
+
+@keyframes check-circle-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes check-mark-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Ripple rings behind the checkmark */
+.success-check .ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  opacity: 0;
+  animation: ring-pulse 1.4s ease-out 0.5s infinite;
+}
+
+.success-check .ring-2 {
+  animation-delay: 1s;
+}
+
+@keyframes ring-pulse {
+  0% { transform: scale(0.6); opacity: 0.55; }
+  100% { transform: scale(2.1); opacity: 0; }
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.confetti span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 2px;
+  opacity: 0;
+  animation: confetti-burst 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) 0.25s forwards;
+}
+
+@keyframes confetti-burst {
+  0% { opacity: 1; transform: translate(0, 0) scale(1) rotate(0deg); }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.3) rotate(var(--rot));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .success-backdrop,
+  .success-card,
+  .check-circle,
+  .check-mark,
+  .success-check .ring,
+  .confetti span {
+    animation: none !important;
+  }
+  .check-circle,
+  .check-mark {
+    stroke-dashoffset: 0 !important;
+  }
+}
