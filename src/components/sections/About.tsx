@@ -1,4 +1,5 @@
 import { aboutData } from "@/lib/data";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function About() {
   return (
@@ -9,20 +10,22 @@ export default function About() {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Left column: heading */}
         <div className="flex-1">
-          <h2 className="font-display text-[48px] md:text-[60px] lg:text-[76px] leading-[1] gradient-text">
-            ABOUT ME
-          </h2>
+          <ScrollReveal variant="left">
+            <h2 className="font-display text-[48px] md:text-[60px] lg:text-[76px] leading-[1] gradient-text">
+              ABOUT ME
+            </h2>
+          </ScrollReveal>
         </div>
 
         {/* Right column: content */}
-        <div className="flex-1 flex flex-col gap-6">
+        <ScrollReveal variant="right" className="flex-1 flex flex-col gap-6">
           <p className="font-body text-lg leading-[1.5] text-text-secondary">
             {aboutData.description}
           </p>
           <p className="font-body text-lg leading-[1.5] text-text-secondary">
             {aboutData.additionalInfo}
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

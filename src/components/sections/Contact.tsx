@@ -5,6 +5,7 @@ import FormInput from "@/components/ui/FormInput";
 import FormTextarea from "@/components/ui/FormTextarea";
 import Button from "@/components/ui/Button";
 import SocialIcon from "@/components/ui/SocialIcon";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { socialLinks, contactData } from "@/lib/data";
 
 export default function Contact() {
@@ -24,7 +25,7 @@ export default function Contact() {
     >
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-6">
         {/* Left column: heading + contact info + footer */}
-        <div className="flex-1 flex flex-col gap-8">
+        <ScrollReveal variant="left" className="flex-1 flex flex-col gap-8">
           <h2 className="font-display text-[48px] md:text-[60px] lg:text-[76px] leading-[1] gradient-text">
             LET'S CONNCET
           </h2>
@@ -56,10 +57,10 @@ export default function Contact() {
               {contactData.copyright}
             </p>
           </footer>
-        </div>
+        </ScrollReveal>
 
         {/* Right column: form */}
-        <div className="flex-1">
+        <ScrollReveal variant="right" delay={120} className="flex-1">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col gap-6"
@@ -90,7 +91,7 @@ export default function Contact() {
               </Button>
             </div>
           </form>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

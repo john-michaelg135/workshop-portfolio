@@ -3,7 +3,7 @@ import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import About from "@/components/sections/About";
-import Experience from "@/components/sections/Experience";
+// import Experience from "@/components/sections/Experience"; // hidden
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -15,7 +15,8 @@ export default function Home() {
         <Projects />
         <Skills />
         <About />
-        <Experience />
+        {/* Experience section hidden — uncomment to re-enable */}
+        {/* <Experience /> */}
         <Contact />
       </main>
     </>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { heroData } from "@/lib/data";
 
 export default function Hero() {
@@ -10,7 +11,7 @@ export default function Hero() {
     >
       <div className="w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-6">
         {/* Left column: content */}
-        <div className="flex-1 flex flex-col gap-8">
+        <ScrollReveal variant="left" className="flex-1 flex flex-col gap-8">
           <h1 className="font-display text-[56px] md:text-[76px] lg:text-[101px] leading-[0.9] gradient-text">
             {heroData.heading}
           </h1>
@@ -25,10 +26,10 @@ export default function Hero() {
               {heroData.ctaSecondary}
             </Button>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Right column: profile image */}
-        <div className="flex-1 flex justify-center lg:justify-end">
+        <ScrollReveal variant="right" delay={120} className="flex-1 flex justify-center lg:justify-end">
           <div className="relative w-full max-w-[280px] lg:max-w-[340px] aspect-[6/7] rounded-lg overflow-hidden">
             <Image
               src="/assets/portrait.jpg"
@@ -39,7 +40,7 @@ export default function Hero() {
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
             />
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
