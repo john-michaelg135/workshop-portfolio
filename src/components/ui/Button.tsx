@@ -25,10 +25,10 @@ export default function Button(props: ButtonProps) {
     return (
       <a
         href={href}
-        className={`inline-flex items-center gap-3 bg-accent text-text-on-accent font-body font-bold text-base leading-none uppercase rounded-full pl-6 pr-1.5 py-5 transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${className}`}
+        className={`group inline-flex items-center gap-3 bg-accent text-text-on-accent font-body font-bold text-base leading-none uppercase rounded-full pl-6 pr-1.5 py-5 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-[0_12px_32px_-8px_var(--color-accent)] active:scale-95 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${className}`}
       >
         <span>{children}</span>
-        <span className="flex items-center justify-center w-[42px] h-[42px] rounded-full bg-text-on-accent/10">
+        <span className="flex items-center justify-center w-[42px] h-[42px] rounded-full bg-text-on-accent/10 transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45">
           <svg
             width="20"
             height="20"
@@ -55,7 +55,7 @@ export default function Button(props: ButtonProps) {
       <button
         type={type}
         disabled={disabled}
-        className={`inline-flex items-center justify-center bg-accent text-text-on-accent font-body font-bold text-base leading-none uppercase rounded-full px-10 py-5 transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${className}`}
+        className={`inline-flex items-center justify-center bg-accent text-text-on-accent font-body font-bold text-base leading-none uppercase rounded-full px-10 py-5 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-[0_12px_32px_-8px_var(--color-accent)] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${className}`}
       >
         {children}
       </button>
@@ -70,7 +70,7 @@ export default function Button(props: ButtonProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
-      className={`inline-flex items-center justify-center w-[54px] h-[54px] bg-bg-tertiary rounded-full transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${className}`}
+      className={`glass glass-interactive inline-flex items-center justify-center w-[54px] h-[54px] rounded-full ${className}`}
     >
       {children}
     </a>

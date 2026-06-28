@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
+  /* Colors (dark defaults — overridden at runtime for light mode) */
   --color-bg-primary: #0A0A0A;
   --color-bg-secondary: #1A1A1A;
   --color-bg-tertiary: #222222;
@@ -21,6 +21,40 @@
   --radius-md: 12px;
   --radius-lg: 30px;
   --radius-full: 100px;
+
+  /* Easing */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* Glass tokens — dark theme defaults */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --glass-shadow: rgba(0, 0, 0, 0.35);
+  --glass-blur: 18px;
+  --orb-opacity: 0.22;
+  --orb-blend: normal;
+}
+
+/* Light theme */
+html.light {
+  --color-bg-primary: #EAECF3;
+  --color-bg-secondary: #FFFFFF;
+  --color-bg-tertiary: #E2E6EF;
+  --color-text-primary: #0E0E12;
+  --color-text-secondary: #565E6C;
+  --color-accent: #6D4AFF;
+  --color-border: #CDD3DE;
+  --color-text-on-accent: #FFFFFF;
+
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-shadow: rgba(60, 70, 120, 0.18);
+  --orb-opacity: 0.4;
+  --orb-blend: multiply;
 }
 
 /* Base styles */
@@ -38,6 +72,7 @@ body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-body);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Skip to content link */
@@ -64,14 +99,131 @@ body {
   outline-offset: 2px;
 }
 
-/* Gradient text for titles */
+/* ===== Liquid Glass UI ===== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05),
+    0 8px 32px -8px var(--glass-shadow);
+}
+
+.glass-interactive {
+  transition:
+    transform 0.4s var(--ease-spring),
+    box-shadow 0.4s ease,
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.glass-interactive:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 16px 48px -8px var(--glass-shadow);
+}
+
+.glass-interactive:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* ===== Skill chip ocean water fill (on hover) ===== */
+.skill-chip-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    #0EA5E9,
+    #06B6D4,
+    #22D3EE,
+    #3B82F6,
+    #06B6D4,
+    #0EA5E9
+  );
+  background-size: 200% 100%;
+  transition: width 0.7s var(--ease-spring), opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Rotating blobs create the water-surface wave shimmer */
+.skill-chip-fill::before,
+.skill-chip-fill::after {
+  content: "";
+  position: absolute;
+  left: -50%;
+  top: -180%;
+  width: 200%;
+  height: 200%;
+  border-radius: 43%;
+}
+
+.skill-chip-fill::before {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.skill-chip-fill::after {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skill-chip:hover .skill-chip-fill,
+.skill-chip:focus-visible .skill-chip-fill {
+  width: 100%;
+  opacity: 0.92;
+  animation: ocean-flow 3.5s linear infinite;
+}
+
+.skill-chip:hover .skill-chip-fill::before,
+.skill-chip:focus-visible .skill-chip-fill::before {
+  animation: wave-spin 6s linear infinite;
+}
+
+.skill-chip:hover .skill-chip-fill::after,
+.skill-chip:focus-visible .skill-chip-fill::after {
+  animation: wave-spin 9s linear infinite reverse;
+}
+
+@keyframes ocean-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes wave-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Keep label crisp over the water */
+.skill-chip:hover,
+.skill-chip:focus-visible {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Gradient text for titles ===== */
 .gradient-text {
-  background: linear-gradient(135deg, #C3B1FF 0%, #8B5CF6 40%, #EC4899 70%, #C3B1FF 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, #C3B1FF 0%, #8B5CF6 35%, #EC4899 65%, #C3B1FF 100%);
+  background-size: 220% 220%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  will-change: background-position;
+  transform: translateZ(0);
   animation: gradient-shift 6s ease infinite;
+}
+
+html.light .gradient-text {
+  background: linear-gradient(135deg, #6D4AFF 0%, #7C3AED 35%, #DB2777 65%, #6D4AFF 100%);
+  background-size: 220% 220%;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 @keyframes gradient-shift {
@@ -80,80 +232,131 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Floating orbs */
+/* ===== Flowing gradient text (for project titles) ===== */
+.gradient-text-flow {
+  background: linear-gradient(
+    90deg,
+    #C3B1FF 0%,
+    #8B5CF6 20%,
+    #EC4899 40%,
+    #06B6D4 60%,
+    #8B5CF6 80%,
+    #C3B1FF 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  will-change: background-position;
+  transform: translateZ(0);
+  animation: gradient-flow 5s linear infinite;
+}
+
+html.light .gradient-text-flow {
+  background: linear-gradient(
+    90deg,
+    #6D4AFF 0%,
+    #7C3AED 20%,
+    #DB2777 40%,
+    #0891B2 60%,
+    #7C3AED 80%,
+    #6D4AFF 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient-flow 5s linear infinite;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* ===== Floating title (bouncy) ===== */
+.animate-float-title {
+  animation: float-title 3.6s var(--ease-spring) infinite;
+}
+
+@keyframes float-title {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(-8px) rotate(-0.4deg); }
+  60% { transform: translateY(-4px) rotate(0.4deg); }
+}
+
+/* ===== Entrance animations ===== */
+.animate-rise {
+  animation: rise 0.8s var(--ease-spring) both;
+}
+
+@keyframes rise {
+  0% { opacity: 0; transform: translateY(28px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-pop {
+  animation: pop 0.6s var(--ease-spring) both;
+}
+
+@keyframes pop {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Floating orbs ===== */
 .orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.2;
+  opacity: var(--orb-opacity);
+  mix-blend-mode: var(--orb-blend);
   will-change: transform;
-  transition: transform 0.1s linear;
 }
 
 .orb-1 {
-  width: 600px;
-  height: 600px;
+  width: 600px; height: 600px;
   background: radial-gradient(circle, #C3B1FF, #8B5CF6);
-  top: -10%;
-  left: -5%;
+  top: -10%; left: -5%;
 }
-
 .orb-2 {
-  width: 400px;
-  height: 400px;
+  width: 400px; height: 400px;
   background: radial-gradient(circle, #6366F1, #3B82F6);
-  top: 5%;
-  right: -5%;
+  top: 5%; right: -5%;
 }
-
 .orb-3 {
-  width: 300px;
-  height: 300px;
+  width: 300px; height: 300px;
   background: radial-gradient(circle, #EC4899, #F472B6);
-  top: 35%;
-  left: -8%;
+  top: 35%; left: -8%;
 }
-
 .orb-4 {
-  width: 500px;
-  height: 500px;
+  width: 500px; height: 500px;
   background: radial-gradient(circle, #06B6D4, #8B5CF6);
-  bottom: -5%;
-  right: -10%;
+  bottom: -5%; right: -10%;
 }
-
 .orb-5 {
-  width: 450px;
-  height: 450px;
+  width: 450px; height: 450px;
   background: radial-gradient(circle, #C3B1FF, #A78BFA);
-  bottom: 10%;
-  left: -10%;
+  bottom: 10%; left: -10%;
 }
-
 .orb-6 {
-  width: 250px;
-  height: 250px;
+  width: 250px; height: 250px;
   background: radial-gradient(circle, #C3B1FF, #EC4899);
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .gradient-text {
+  .gradient-text,
+  .gradient-text-flow,
+  .animate-float-title,
+  .animate-rise,
+  .animate-pop {
     animation: none !important;
   }
-  .animate-float-title {
+  .skill-chip:hover .skill-chip-fill {
     animation: none !important;
   }
-}
-
-/* Floating title animation */
-.animate-float-title {
-  animation: float-title 4s ease-in-out infinite;
-}
-
-@keyframes float-title {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  .glass-interactive:hover {
+    transform: none;
+  }
 }

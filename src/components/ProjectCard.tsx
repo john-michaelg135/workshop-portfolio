@@ -9,7 +9,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, className = "" }: ProjectCardProps) {
   return (
     <article
-      className={`flex flex-col lg:flex-row gap-8 lg:gap-12 ${className}`}
+      className={`group flex flex-col lg:flex-row gap-8 lg:gap-12 glass glass-interactive rounded-md p-6 lg:p-8 ${className}`}
     >
       {/* Image */}
       <div className="w-full lg:flex-1 lg:min-w-0">
@@ -19,7 +19,7 @@ export default function ProjectCard({ project, className = "" }: ProjectCardProp
               src={project.image}
               alt={`${project.title} screenshot`}
               fill
-              className="object-cover p-6 rounded-[30px]"
+              className="object-cover p-6 rounded-[30px] transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-105"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           ) : (
@@ -35,7 +35,7 @@ export default function ProjectCard({ project, className = "" }: ProjectCardProp
 
       {/* Content */}
       <div className="w-full lg:flex-1 lg:min-w-0 flex flex-col justify-center gap-6">
-        <h3 className="font-body font-medium text-[32px] leading-[1.4] gradient-text animate-float-title">
+        <h3 className="font-body font-medium text-[32px] leading-[1.4] gradient-text-flow animate-float-title">
           {project.title}
         </h3>
         <p className="font-body text-lg leading-[1.5] text-text-secondary">

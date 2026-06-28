@@ -29,7 +29,7 @@ export default function FormTextarea({
         placeholder={placeholder}
         required={required}
         rows={rows}
-        className="bg-bg-secondary rounded-sm px-4 py-3 font-body text-lg leading-[1.5] text-text-primary placeholder:text-text-secondary/50 border-none outline-none resize-y min-h-[156px] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-0"
+        className="glass rounded-xl px-4 py-3 font-body text-lg leading-[1.5] text-text-primary placeholder:text-text-secondary/60 outline-none resize-y min-h-[156px] transition-all duration-300 focus-visible:scale-[1.01] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-0"
       />
     </div>
   );

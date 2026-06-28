@@ -6,9 +6,10 @@ interface SkillChipProps {
 export default function SkillChip({ label, className = "" }: SkillChipProps) {
   return (
     <span
-      className={`inline-block border border-border rounded-full px-10 py-5 font-body font-bold text-base leading-none uppercase text-text-primary ${className}`}
+      className={`skill-chip glass glass-interactive relative inline-block overflow-hidden rounded-full px-10 py-5 font-body font-bold text-base leading-none uppercase text-text-primary cursor-default ${className}`}
     >
-      {label}
+      <span className="skill-chip-fill" aria-hidden="true" />
+      <span className="relative z-10">{label}</span>
     </span>
   );
 }

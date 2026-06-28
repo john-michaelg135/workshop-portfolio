@@ -67,7 +67,7 @@ export default function SocialIcon({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
-      className={`inline-flex items-center justify-center w-[54px] h-[54px] bg-bg-tertiary rounded-full text-text-primary transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${className}`}
+      className={`glass glass-interactive inline-flex items-center justify-center w-[54px] h-[54px] rounded-full text-text-primary ${className}`}
     >
       {Icon && <Icon />}
     </a>

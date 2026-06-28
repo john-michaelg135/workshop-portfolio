@@ -6,9 +6,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="px-6 md:px-12 lg:px-[108px] pt-14 pb-20"
+      className="px-6 md:px-12 lg:px-[108px] pt-24 pb-20 min-h-screen flex items-center"
     >
-      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-6">
+      <div className="w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-6">
         {/* Left column: content */}
         <div className="flex-1 flex flex-col gap-8">
           <h1 className="font-display text-[56px] md:text-[76px] lg:text-[101px] leading-[0.9] gradient-text">
@@ -29,7 +29,7 @@ export default function Hero() {
 
         {/* Right column: profile image */}
         <div className="flex-1 flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-[400px] lg:max-w-[480px] aspect-[6/7] rounded-lg overflow-hidden">
+          <div className="relative w-full max-w-[280px] lg:max-w-[340px] aspect-[6/7] rounded-lg overflow-hidden">
             <Image
               src="/assets/portrait.jpg"
               alt="Kael — Fullstack Developer portrait"

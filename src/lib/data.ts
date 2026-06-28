@@ -8,7 +8,7 @@ export const navLinks: NavLink[] = [
 ];
 
 export const heroData = {
-  heading: "HI, I AM KAEL GARCIA",
+  heading: "Hi! I'm KAEL GARCIA",
   subtext:
     "Aspiring Data Analyst eager to explore diverse opportunities to grow technical and analytical skills, while also bringing creativity through a passion for photography that captures inspiring perspectives.",
   ctaPrimary: "See My Work",
@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description:
       "An academic tracker application enhanced with AI-powered voice-to-text technology, designed to streamline note-taking, progress monitoring, and task management for students and educators.",
     image: "/assets/project1_acadence.png",
-    tags: ["Next.js", "TypeScript", "D3.js"],
+    tags: ["Python", "TypeScript", "D3.js"],
     year: "2026",
     role: "Fullstack Developer",
     liveUrl: "https://example.com",
