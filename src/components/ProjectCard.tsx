@@ -1,89 +1,34 @@
 import Image from "next/image";
-import { Project } from "@/types";
+import type { Project } from "@/types";
 
-interface ProjectCardProps {
-  project: Project;
-  className?: string;
-}
+interface ProjectCardProps { project: Project; className?: string; }
 
 export default function ProjectCard({ project, className = "" }: ProjectCardProps) {
   return (
-    <article
-      className={`group flex flex-col lg:flex-row gap-8 lg:gap-12 glass glass-interactive rounded-md p-6 lg:p-8 ${className}`}
-    >
-      {/* Image */}
-      <div className="w-full lg:flex-1 lg:min-w-0">
-        <div className="relative w-full aspect-square bg-bg-secondary rounded-md overflow-hidden">
-          {project.image && !project.image.includes("placeholder") ? (
-            <Image
-              src={project.image}
-              alt={`${project.title} screenshot`}
-              fill
-              className="object-cover p-6 rounded-[30px] transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-105"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          ) : (
-            <div className="absolute inset-4 bg-bg-tertiary rounded-lg" />
-          )}
-          {project.tags[0] && (
-            <span className="absolute top-6 left-6 bg-bg-primary rounded-full px-4 py-2 font-body font-medium text-sm leading-[1.5] text-text-primary z-10">
-              {project.tags[0]}
-            </span>
-          )}
-        </div>
+    <article id={project.id} className={`project-dossier ${className}`}>
+      <div className="project-media">
+        <Image
+          src={project.image}
+          alt={`${project.title} interface`}
+          fill
+          className="project-image"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+        />
       </div>
-
-      {/* Content */}
-      <div className="w-full lg:flex-1 lg:min-w-0 flex flex-col justify-center gap-6">
-        <h3 className="font-body font-medium text-[32px] leading-[1.4] gradient-text-flow animate-float-title">
-          {project.title}
-        </h3>
-        <p className="font-body text-lg leading-[1.5] text-text-secondary">
-          {project.description}
-        </p>
-
-        {/* Project info */}
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between border-t border-border pt-3">
-            <span className="font-body font-medium text-base text-text-secondary">
-              Year
-            </span>
-            <span className="font-body text-base text-text-primary">
-              {project.year}
-            </span>
-          </div>
-          <div className="flex items-center justify-between border-t border-border pt-3">
-            <span className="font-body font-medium text-base text-text-secondary">
-              Role
-            </span>
-            <span className="font-body text-base text-text-primary">
-              {project.role}
-            </span>
-          </div>
+      <div className="project-copy">
+        <p className="scene-kicker"><span /> DEPLOYED / {project.year}</p>
+        <h3>{project.title}</h3>
+        <p className="project-desc">{project.description}</p>
+        <div className="project-tags">
+          {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
         </div>
-
-        {/* Links */}
-        <div className="flex flex-wrap items-center gap-6">
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body font-bold text-base leading-[1.5] uppercase text-accent underline underline-offset-4 transition-opacity hover:opacity-80"
-            >
-              Live Demo
-            </a>
-          )}
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body font-bold text-base leading-[1.5] uppercase text-accent underline underline-offset-4 transition-opacity hover:opacity-80"
-            >
-              See on Github
-            </a>
-          )}
+        <dl>
+          <div><dt>ROLE</dt><dd>{project.role}</dd></div>
+          <div><dt>YEAR</dt><dd>{project.year}</dd></div>
+        </dl>
+        <div className="project-actions">
+          {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer">LAUNCH ↗</a>}
+          {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer">SOURCE ↗</a>}
         </div>
       </div>
     </article>

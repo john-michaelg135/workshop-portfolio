@@ -1,9 +1,11 @@
-import { Project, Experience, SocialLink, NavLink } from "@/types";
+import { Project, Experience, SocialLink, NavLink, Certificate } from "@/types";
 
 export const navLinks: NavLink[] = [
   { label: "Home", href: "#home" },
   { label: "Projects", href: "#projects" },
-  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Certs", href: "#certificates" },
+  { label: "Archive", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -22,7 +24,7 @@ export const projects: Project[] = [
     description:
       "An academic tracker application enhanced with AI-powered voice-to-text technology, designed to streamline note-taking, progress monitoring, and task management for students and educators.",
     image: "/assets/project1_acadence.png",
-    tags: ["Python", "TypeScript", "D3.js"],
+    tags: ["Python", "CustomTkinter", "SQLITE3", "AI (Whisper)"],
     year: "2026",
     role: "Fullstack Developer",
     liveUrl: "https://example.com",
@@ -42,8 +44,13 @@ export const skills: string[] = [
   "C#",
   "Figma",
   "Git",
-  "Pyhon",
+  "Python",
   "REST APIs",
+  "Machine Learning",
+  "Transcription",
+  "Speech Evaluation",
+  "Retail",
+  "Sales",
 ];
 
 export const aboutData = {
@@ -56,30 +63,23 @@ export const aboutData = {
 export const experiences: Experience[] = [
   {
     id: "exp-1",
-    jobTitle: "Senior Frontend Developer",
-    company: "TechCorp Inc.",
-    startDate: "2022",
+    jobTitle: "Data Services Specialist",
+    company: "RWS Group",
+    startDate: "Jul 2026",
     endDate: "Present",
     description:
-      "Leading frontend architecture for a SaaS platform serving 50K+ users. Implemented design system, improved Core Web Vitals by 40%, and mentored junior developers.",
+      "Collaborated with RWS as a Data Services Specialist, supporting multilingual data annotation and AI workflow optimization projects. Contributed to cross-regional initiatives under the APAC and EMEA time zones, delivering structured datasets and workflow documentation aligned with client standards.",
+    skills: ["Artificial Intelligence (AI)", "Machine Learning", "Transcription", "Speech Evaluation"],
   },
   {
     id: "exp-2",
-    jobTitle: "Fullstack Developer",
-    company: "StartupXYZ",
-    startDate: "2020",
-    endDate: "2022",
+    jobTitle: "Sales Associate",
+    company: "Aice Brands Ice Cream Philippines Inc.",
+    startDate: "Apr 2020",
+    endDate: "Jun 2022",
     description:
-      "Built and shipped 3 client-facing products from ideation to launch. Worked across the stack with React, Node.js, and PostgreSQL in an agile team.",
-  },
-  {
-    id: "exp-3",
-    jobTitle: "Junior Developer",
-    company: "Digital Agency Co.",
-    startDate: "2019",
-    endDate: "2020",
-    description:
-      "Developed responsive websites and interactive experiences for various clients. Gained expertise in modern CSS, accessibility, and performance optimization.",
+      "Delivered personalized customer service by identifying and responding to individual preferences, boosting customer satisfaction and repeat business. Managed product inventory and coordinated supply restocking to ensure consistent availability of popular items. Promoted seasonal and new products to drive sales and meet store targets.",
+    skills: ["Retail", "Sales"],
   },
 ];
 
@@ -108,3 +108,24 @@ export const contactData = {
   email: "johnmichaelg046@gmail.com",
   copyright: "© 2026 Kael. All rights reserved.",
 };
+
+export const certificates: Certificate[] = [
+  {
+    id: "cert-mabl",
+    title: "mabl Skills Certification: Foundations",
+    issuer: "mabl",
+    issuedDate: "Jun 2026",
+    credentialId: "fuxv7d8tjiv5",
+    verifyUrl: "https://verify.skilljar.com/c/fuxv7d8tjiv5",
+    skills: ["Artificial Intelligence (AI)", "Automation", "Testing"],
+  },
+  {
+    id: "cert-csharp",
+    title: "Foundational C# with Microsoft",
+    issuer: "freeCodeCamp",
+    issuedDate: "Apr 2025",
+    credentialId: "fccd801ea51-8900-4290-86eb-3f42d7d3c5bb-fcswm",
+    verifyUrl: "https://freecodecamp.org/certification/fccd801ea51-8900-4290-86eb-3f42d7d3c5bb/foundational-c-sharp-with-microsoft",
+    skills: ["C#", "Debugging", ".NET"],
+  },
+];

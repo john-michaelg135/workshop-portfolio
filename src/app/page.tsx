@@ -2,23 +2,26 @@ import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
+import Certificates from "@/components/sections/Certificates";
 import About from "@/components/sections/About";
-// import Experience from "@/components/sections/Experience"; // hidden
 import Contact from "@/components/sections/Contact";
+import ContextPanel from "@/components/ui/ContextPanel";
+import Particles from "@/components/ui/Particles";
 
 export default function Home() {
   return (
-    <>
+    <div className="app-frame">
       <Navbar />
-      <main id="main-content">
+      <Particles />
+      <main id="main-content" className="content-feed">
         <Hero />
         <Projects />
         <Skills />
+        <Certificates />
         <About />
-        {/* Experience section hidden — uncomment to re-enable */}
-        {/* <Experience /> */}
         <Contact />
       </main>
-    </>
+      <ContextPanel />
+    </div>
   );
 }

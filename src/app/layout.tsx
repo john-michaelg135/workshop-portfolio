@@ -1,31 +1,31 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Manrope, Inter } from "next/font/google";
-import FloatingOrbs from "@/components/ui/FloatingOrbs";
+import { Rajdhani, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
+const rajdhani = Rajdhani({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const manrope = Manrope({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-nav",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Hi! I'm KAEL GARCIA",
+  title: "KAEL_GARCIA // DEVELOPER",
   description:
-    "I build web applications that are fast, accessible, and visually engaging. Specializing in React, Next.js, and modern web technologies.",
+    "Fullstack Developer — building fast, accessible, and visually engaging web applications. React, Next.js, and modern web technologies.",
 };
 
 export default function RootLayout({
@@ -36,21 +36,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebasNeue.variable} ${manrope.variable} ${inter.variable}`}
-      suppressHydrationWarning
+      className={`${rajdhani.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}if(t==='light'){document.documentElement.classList.add('light');}}catch(e){}})();`,
-          }}
-        />
-      </head>
-      <body className="bg-bg-primary text-text-primary font-body antialiased">
+      <body className="bg-bg-void text-text-primary font-body antialiased">
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
-        <FloatingOrbs />
+        {/* Atmospheric layers */}
+        <div className="bg-grid" aria-hidden="true" />
+        <div className="scan-line" aria-hidden="true" />
+        <div className="noise-overlay" aria-hidden="true" />
+        {/* Content */}
         <div className="relative z-10">
           {children}
         </div>

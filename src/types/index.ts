@@ -17,6 +17,7 @@ export interface Experience {
   startDate: string;
   endDate: string;
   description: string;
+  skills?: string[];
 }
 
 export interface SocialLink {
@@ -29,4 +30,14 @@ export interface SocialLink {
 export interface NavLink {
   label: string;
   href: string;
+}
+
+export interface Certificate {
+  id: string;
+  title: string;
+  issuer: string;
+  issuedDate: string;
+  credentialId: string;
+  verifyUrl: string;
+  skills: string[];
 }
