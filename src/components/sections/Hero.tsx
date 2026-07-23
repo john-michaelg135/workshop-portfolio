@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="hero-copy enter-rise">
         <p className="scene-kicker"><span /> USER_001 / AVAILABLE</p>
         <h1>Kael.<br /><em>LV. 21.</em></h1>
-        <p className="hero-role">DATA SERVICES SPWCIALIST <b>×</b> ASPIRING DATA ANALYST <b>×</b> DOST SCHOLAR</p>
+        <p className="hero-role">DATA SERVICES SPECIALIST <b>×</b> ASPIRING DATA ANALYST <b>×</b> DOST SCHOLAR</p>
         <p className="hero-summary">{heroData.subtext}</p>
         <div className="hero-actions"><a href="#projects">ENTER WORKSPACE <span>↘</span></a><a href="#contact">OPEN CHANNEL</a></div>
       </div>
