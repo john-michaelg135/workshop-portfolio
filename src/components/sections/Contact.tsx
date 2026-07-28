@@ -69,8 +69,8 @@ export default function Contact() {
         <form className="contact-form" onSubmit={handleSubmit} noValidate>
           <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
           <FormInput id="name" label="IDENTIFIER" placeholder="Name" required value={form.name} onChange={handleChange} error={errors.name} />
-          <FormInput id="email" label="COMM ADDR" type="email" placeholder="you@domain" required value={form.email} onChange={handleChange} error={errors.email} />
-          <FormTextarea id="message" label="PAYLOAD" placeholder="Your message…" required value={form.message} onChange={handleChange} error={errors.message} />
+          <FormInput id="email" label="COMM ADD" type="email" placeholder="you@domain" required value={form.email} onChange={handleChange} error={errors.email} />
+          <FormTextarea id="message" label="MESSAGE" placeholder="Your message…" required value={form.message} onChange={handleChange} error={errors.message} />
           {serverError && <p role="alert" className="form-error">{serverError}</p>}
           <button type="submit" disabled={status === "submitting"} className="btn-action">{status === "submitting" ? "TRANSMITTING…" : "SEND TRANSMISSION →"}</button>
         </form>

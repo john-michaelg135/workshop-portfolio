@@ -2,8 +2,8 @@ import { Project, Experience, SocialLink, NavLink, Certificate } from "@/types";
 
 export const navLinks: NavLink[] = [
   { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
   { label: "Certs", href: "#certificates" },
   { label: "Archive", href: "#about" },
   { label: "Contact", href: "#contact" },
@@ -27,30 +27,121 @@ export const projects: Project[] = [
     tags: ["Python", "CustomTkinter", "SQLITE3", "AI (Whisper)"],
     year: "2026",
     role: "Fullstack Developer",
-    liveUrl: "https://example.com",
+    status: "Pre-Release",
+    type: "DESKTOP APP",
+    liveUrl: "",
     githubUrl: "https://github.com/john-michaelg135/acadence-ai-voice-text.git",
+  },
+  {
+    id: "project-2",
+    title: "JobtTack — Job Application Tracker",
+    description:
+      "A full-stack job application tracker built with Next.js, Supabase, and Tailwind CSS. Track your applications, update statuses, and stay organized — all in one private, secure place.",
+    image: "",
+    tags: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript"],
+    year: "2026",
+    role: "Fullstack Developer",
+    status: "Deployed",
+    type: "WEB APP",
+    liveUrl: "",
+    githubUrl: "https://github.com/john-michaelg135/job-track",
+  },
+  {
+    id: "project-3",
+    title: "Statdash — Data Intelligence Platform",
+    description:
+      "Instant analytics from any dataset — a full-stack data intelligence platform combining a Node.js/DuckDB pipeline for DPWH flood control project data with a universal, browser-based dataset analyzer built on React + TypeScript.",
+    image: "",
+    tags: ["React", "TypeScript", "DuckDB", "Node.js", "Recharts", "Vite", "SheetJS"],
+    year: "2026",
+    role: "Fullstack Developer",
+    status: "Beta",
+    type: "WEB APP",
+    liveUrl: "",
+    githubUrl: "https://github.com/john-michaelg135/stat-dash",
+  },
+  {
+    id: "project-4",
+    title: "TaskFlow — Task Manager",
+    description:
+      "A modern task management app with built-in AI document generation. Create and organize tasks, then generate academic guides, research literature reviews, or productivity tips powered by free AI.",
+    image: "",
+    tags: ["React ", "Tailwind CSS", "Vite", "Express", "AI (Pollinations)", "Oxlint"],
+    year: "2026",
+    role: "Fullstack Developer",
+    status: "Alpha",
+    type: "WEB APP",
+    liveUrl: "",
+    githubUrl: "https://github.com/john-michaelg135/task-manager",
   },
 ];
 
-export const skills: string[] = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "GraphQL",
-  "Docker",
-  "C#",
-  "Figma",
-  "Git",
-  "Python",
-  "REST APIs",
-  "Machine Learning",
-  "Transcription",
-  "Speech Evaluation",
+export interface TechnicalSkill {
+  name: string;
+  level: 1 | 2 | 3; // 1=beginner, 2=intermediate, 3=proficient
+}
+
+export interface SkillCategory {
+  label: string;
+  tag: string;
+  skills: TechnicalSkill[];
+}
+
+export const technicalSkills: SkillCategory[] = [
+  {
+    label: "Languages",
+    tag: "LANG",
+    skills: [
+      { name: "HTML & CSS", level: 2 },
+      { name: "Python", level: 1 },
+      { name: "C#", level: 1 },
+      { name: "TypeScript", level: 1 },
+      { name: "SQL", level: 1 },
+    ],
+  },
+  {
+    label: "Frameworks & Libraries",
+    tag: "FW",
+    skills: [
+      { name: "React", level: 1 },
+      { name: "Next.js", level: 1 },
+      { name: "Tailwind CSS", level: 1 },
+      { name: "Flutterflow", level: 1 },
+      { name: "Machine Learning", level: 1 },
+    ],
+  },
+  {
+    label: "Data & DevOps",
+    tag: "DATA",
+    skills: [
+      { name: "SQL Server Management Studio", level: 1 },
+      { name: "PostgreSQL", level: 1 },
+      { name: "Docker", level: 1 },
+      { name: "Git", level: 1 },
+    ],
+  },
+  {
+    label: "Design & Tools",
+    tag: "TOOL",
+    skills: [
+      { name: "Figma", level: 1 },
+      { name: "Gamma", level: 2 },
+      { name: "Google Sheets", level: 2 },
+      { name: "Microsoft Excel", level: 2 },
+    ],
+  },
+];
+
+export const generalSkills: string[] = [
+  "Time Management",
+  "Negotiation",
   "Retail",
   "Sales",
+  "Communication",
+  "Adaptive",
+  "Phone Etiquette",
+  "Transcription",
+  "Speech Evaluation",
 ];
 
 export const aboutData = {
@@ -93,13 +184,13 @@ export const socialLinks: SocialLink[] = [
   {
     id: "social-linkedin",
     platform: "linkedin",
-    url: "https://www.linkedin.com/in/garcia-john-michael-n-759450403/",
+    url: "https://www.linkedin.com/in/john-michael-garcia-759450403",
     ariaLabel: "Visit LinkedIn profile",
   },
   {
     id: "social-instagram",
     platform: "instagram",
-    url: "https://instagram.com",
+    url: "https://www.instagram.com/kaelculated_?igsh=ZTQwdTBhc3I0aDE2",
     ariaLabel: "Visit Instagram profile",
   },
 ];

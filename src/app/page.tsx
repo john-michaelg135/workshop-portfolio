@@ -15,8 +15,8 @@ export default function Home() {
       <Particles />
       <main id="main-content" className="content-feed">
         <Hero />
-        <Projects />
         <Skills />
+        <Projects />
         <Certificates />
         <About />
         <Contact />

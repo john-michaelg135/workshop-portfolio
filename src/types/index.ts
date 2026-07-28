@@ -6,6 +6,8 @@ export interface Project {
   tags: string[];
   year: string;
   role: string;
+  status: string;
+  type: string;
   liveUrl?: string;
   githubUrl?: string;
 }

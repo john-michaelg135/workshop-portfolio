@@ -5,8 +5,8 @@ import { navLinks } from "@/lib/data";
 
 const sections = [
   { id: "home", nav: "#home", label: "IDENTITY", accent: "#00E5C8", bright: "#5DFFE9", rgb: "0, 229, 200" },
-  { id: "projects", nav: "#projects", label: "PROJECT NODE", accent: "#FF4F9A", bright: "#FF91C2", rgb: "255, 79, 154" },
   { id: "skills", nav: "#skills", label: "SKILL MATRIX", accent: "#4FC3F7", bright: "#9DDEFC", rgb: "79, 195, 247" },
+  { id: "projects", nav: "#projects", label: "PROJECT NODE", accent: "#FF4F9A", bright: "#FF91C2", rgb: "255, 79, 154" },
   { id: "certificates", nav: "#certificates", label: "ACHIEVEMENTS", accent: "#D4A058", bright: "#F0C786", rgb: "212, 160, 88" },
   { id: "about", nav: "#about", label: "MEMORY ARCHIVE", accent: "#9C5FE0", bright: "#C29AF0", rgb: "156, 95, 224" },
   { id: "contact", nav: "#contact", label: "COMM LINK", accent: "#FF3D3D", bright: "#FF8585", rgb: "255, 61, 61" },
