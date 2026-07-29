@@ -81,7 +81,7 @@ export default function Navbar() {
         <div className="system-ticker" aria-hidden="true"><span>● LIVE</span><span>120 BPM</span><span>2026.07.23</span></div>
       </header>
       <nav className="nav-rail" aria-label="Primary navigation">
-        <a className="rail-monogram" href="#home" onClick={(e) => navigate(e, "#home")} aria-label="Home">KG</a>
+        <a className="rail-monogram" href="#home" onClick={(e) => navigate(e, "#home")} aria-label="Home">SYS</a>
         <div className="rail-menu">
           {navLinks.map((link, index) => {
             const isActive = active.nav === link.href;

@@ -55,12 +55,18 @@ export default function Hero() {
         <h1>GARCIA.<br /><em className="hero-typewriter-title">{displayText}<span className="typewriter-cursor" aria-hidden="true">|</span></em></h1>
         <p className="hero-role">PROFILE.SYS: 2005.03</p>
         <p className="hero-summary">{heroData.subtext}</p>
-        <div className="hero-actions"><a href="#projects">ENTER WORKSPACE <span>↘</span></a><a href="#contact">OPEN CHANNEL</a></div>
+        <div className="hero-actions"><a href="#projects">ENTER WORKSPACE <span>↘</span></a><a href="#contact">OPEN CHANNEL <span>→</span></a></div>
+        <div className="hero-actions"><a href="/database/Resume (1).pdf" download className="hero-btn--ivy">DOWNLOAD RESUME <span>⤓</span></a></div>
       </div>
       <div className="hero-visual enter-glitch">
-        <div className="portrait-frame scanlines">
-          <Image src="/assets/portrait.jpg" alt="Kael Garcia" fill priority className="portrait-image" sizes="(max-width: 768px) 86vw, 38vw" />
-          <div className="portrait-index">SUBJECT<br /><b>KG—26</b></div>
+        <div className="portrait-wrapper">
+          <div className="portrait-frame scanlines">
+            <Image src="/assets/portrait.jpg" alt="Kael Garcia" fill priority className="portrait-image" sizes="(max-width: 768px) 86vw, 38vw" />
+            <div className="portrait-index">SUBJECT<br /><b>KG—21</b></div>
+          </div>
+          <div className="portrait-corners" aria-hidden="true">
+            <span /><span /><span /><span />
+          </div>
         </div>
         <div className="visual-tag visual-tag--pink"><span>CREATIVE</span><b>PHOTO / 35MM</b></div>
         <div className="visual-tag visual-tag--blue"><span>LOGIC</span><b>DATA / WEB</b></div>
