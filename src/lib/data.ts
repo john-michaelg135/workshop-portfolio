@@ -34,7 +34,7 @@ export const projects: Project[] = [
   },
   {
     id: "project-2",
-    title: "JobtTack — Job Application Tracker",
+    title: "JobTrack — Job Application Tracker",
     description:
       "A full-stack job application tracker built with Next.js, Supabase, and Tailwind CSS. Track your applications, update statuses, and stay organized — all in one private, secure place.",
     image: "",
@@ -43,12 +43,12 @@ export const projects: Project[] = [
     role: "Fullstack Developer",
     status: "Deployed",
     type: "WEB APP",
-    liveUrl: "",
+    liveUrl: "https://job-track-bice.vercel.app/",
     githubUrl: "https://github.com/john-michaelg135/job-track",
   },
   {
     id: "project-3",
-    title: "Statdash — Data Intelligence Platform",
+    title: "StatDash — Data Intelligence Platform",
     description:
       "Instant analytics from any dataset — a full-stack data intelligence platform combining a Node.js/DuckDB pipeline for DPWH flood control project data with a universal, browser-based dataset analyzer built on React + TypeScript.",
     image: "",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     role: "Fullstack Developer",
     status: "Beta",
     type: "WEB APP",
-    liveUrl: "",
+    liveUrl: "https://stat-dash-dashboard.vercel.app/",
     githubUrl: "https://github.com/john-michaelg135/stat-dash",
   },
   {
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     role: "Fullstack Developer",
     status: "Alpha",
     type: "WEB APP",
-    liveUrl: "",
+    liveUrl: "https://task-manager-beige-nu-72.vercel.app/",
     githubUrl: "https://github.com/john-michaelg135/task-manager",
   },
 ];
